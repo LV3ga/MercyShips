@@ -1,0 +1,40 @@
+Hospital
+-identify if bellwether
+-identify practicing SAOs
+-get geolocation
+
+
+
+Indicator 1
+Household surveys to get self reported time to hospital
+Hospital surveys to identify bellwether hospitals
+Geolocation of hospital to additionally estimate time to hospital
+
+
+
+Indicator 2
+-Hospital survey to get practicing SAOs
+-World bank/government population estimates
+
+
+
+Indicator 3
+-Hospital survey to get records
+-Household surveys to estimate number of procedures?? Maybe??
+
+
+
+Indicator 4
+-uhh not sure
+
+
+
+Indicator 5
+-
+
+
+
+Indicator 6
+-
+
+
