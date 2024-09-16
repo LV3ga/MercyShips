@@ -1,0 +1,19 @@
+8/28/2024
+Tasks
+-Learn about geospatial analysis
+-Figure out if SAO density (SAOD) can predict (or produce CI for) surgical volume (SV).
+Accomplished
+-Generating SV from SAOD is a dead end (more in notes)
+-Read some stuff on geospatial analysis
+Notes
+-With regards to SAOD and SV, the following facts concern me.
+	0. The data in R was heteroskedastic.
+	1. Concerning heteroskedasticity, the biggest change in variance was between the (0,1) SAOD interval and (1, inf) SAOD interval.
+	2. Only 8 observations in (0,1) SAOD interval.
+ I don't feel comfortable moving forward trying to generate a CI for SV from SAOD. Don't know enough stats.
+-I feel that learning a lot about spatial analysis is the most productive thing I can do now. 
+ Here is the link to learn 
+https://www.spatialanalysisonline.com/HTML/index.html?distance__direction_and_spatia.htm
+ (currently on Spatial Relationships -> Distance, Direction and Spatial Weight Matrices)
+Questions
+-

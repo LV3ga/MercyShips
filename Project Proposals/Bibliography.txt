@@ -1,0 +1,82 @@
+@article{LCoGS2015,
+    author = {Meara, J. Leatherm, A. Hagander, L. Alkire, B. Alonso, N. Ameh, E.},
+    title = {{Global Surgery 2030: evidence and solutions for achieving health, welfare and economic development}},
+    journal = {The Lancet Commissions},
+    year = {2015} 
+}
+
+@article{LindheimMinde2021,
+    author = {Lindheim-Minde, B. Gjora, A. Bakker, J. Duinen, A. Leerdam, D. Smalle, I. Bundu, I. Bolkan, H.},
+    title = {{Changes in surgical volume, workforce and productivity in Sierra Leone between 2012 and 22017}},
+    journal = {Surgery},
+    year = {2021}
+}
+
+
+@article{Vreede2018,
+    author = {Davis, J. Vreede, E. Onajin-Obembe, B.},
+    title = {{What is the minimum number of specialist anaesthetists needed in low-income and middle-income countries?}},
+    journal = {{BMJ Glob Health}},
+    year = {2018}
+}
+
+
+@article{Tyler2024,
+    author = {Law, T. Lipnick, M. Morris, W. Gelb, A. Mellin-Olsen, J. Filipescu, D. Rowles, J. Rod, P. Khan, F. Yazbeck, P. Zoumenou, E. Ibarra, P. Ranatunga, K. Bulamba, F.},
+    title = {{The Global Anesthesia Workforce Survey: Updates and Trends in the ANesthesia Workforce}},
+    journal = {{Anesthesia and Analgesia}},
+    year = {2024}
+}
+
+% Ett kapitel, t.ex. om det är en antologi med flera olika författare som skriver ett kapitel var, och du bara använder ett kapitel
+@inbook{inbook,
+    author = {},
+    title = {},
+    publisher = {},
+    year = {},
+    chapter = {}
+}
+
+
+
+% lika samma som conference
+@inproceedings{inproceedings,
+    author = {},
+    title = {},
+    booktitle = {},
+    year = {}
+}
+
+% en teknisk manual
+@manual{manual,
+    key = {},
+    title = {}
+}
+
+%webblänkar oftast!
+@misc{misc,
+    key = {},
+    note = {}
+}
+
+% om man använder flera artiklar från samma konferens så kors-refar man till denna typ
+@proceedings{proceedings,
+    key = {},
+    title = {},
+    year = {}
+}
+
+% Typiskt något från ACM och IEEE SPECIAL INTEREST GROUP såsom SIGGRAPH
+@techreport{techreport,
+    author = {},
+    title = {},
+    institution = {},
+    year = {}
+}
+
+% artiklar som inte hamnat (antagits, publiserats) vid konferens eller journal t.ex. arxiv
+@unpublished{unpublished,
+    author = {},
+    title = {},
+    note = {}
+}

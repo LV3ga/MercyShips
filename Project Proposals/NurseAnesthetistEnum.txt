@@ -1,0 +1,47 @@
+\documentclass[12pt,twoside,a4paper]{article} %12 punkters typsnitt (standard är 10), A4-format, och dokumenttyp är "article" jämför: report - längre rapporter med  kapitel, book - förberett för omslag osv., slides - så du kan göra presentationer, letter - fAör att skriva brev, IEEEtran - för journalartiklar (pröva för att se vad som händer, byt article mot IEEEtran)
+
+\usepackage{geometry} % Möjliggör t.ex. A4
+
+\usepackage{graphicx} % Required for inserting images
+
+\usepackage{hyperref} %möjliggör länkar
+
+\usepackage[utf8]{inputenc} %möjliggör olika teckenkodningssystem
+\usepackage[english]{babel}
+
+\usepackage{lineno} % möjliggör randnumrering för granskning!
+%\linenumbers % stänger av och på radnumrering
+
+\title{Study Summary: Enumeration of Nurse Anesthetists in Sierra Leone}
+\author{Alcorn, D. Vega, L. Apson, A.}
+\date{September 2024} % Om du vill ha automatiskt datumsättning så kommentera bort den här raden
+
+\begin{document}
+
+%-tecknet betyder att man kommenterar bort raden
+
+\maketitle % \maketitle sätter in fält såsom t.ex. \author och \date och \title naturligtvis
+%-----------------------Här börjar min text ----------------------------
+
+
+
+
+\section{Background and Motivation}
+In 2015, the Lancet Commission on Global Surgery (LCoGS) estimated that five billion people do not have access to safe, affordable surgical and anesthesia care when needed ~\cite{LCoGS2015}. The same commission reported that Sub-Saharan Africa has among the highest rates of unmet surgical need. To address unmet surgical need, a minimum workforce of surgeons, anesthesiologists and obstetricians (SAO) of 20 per 100,000 is suggested by the LCoGS. In 2017, the World Federation of Societies of Anaesthesiologists (WFSA) suggested 5 of the 20 SAO should be anesthesiologists. Many Sub-Saharan African countries, including Sierra Leone (1.2 SAO per 100,000), are far below this goal ~\cite{LindheimMinde2021}. Additionally, many authors admit that increasing physician anesthesiologists is difficult in low-income countries. However, nurse anesthetists are less expensive to train and are still needed to address unmet surgical need. \\
+
+Recognizing this fact, Mercy Ships has launched a Nurse Anesthesia Diploma Program (NAPD) in Sierra Leone, with the goal of producing 20 nurse anesthetists every 18 months. In the Theory of Change section of the NAPD project plan \textit{(Nurse anesthesia diploma project plan revised 28 May 2024 FINAL.docx)}, the document reads \textit{IF Mercy Ships  collaborates with the Faculty of Nursing to deliver the nurse anesthesia diploma program by providing two tutors to teach the course AND IF these graduates have the requisite knowledge, skills and equipment they need to practice anesthesia care AND IF the Ministry of Health in Sierra Leone facilitates placement of nurse anesthesia diploma course graduates into relevant and paid roles THEN we will effectively mitigate the immediate critical shortages in the anesthesia workforce.} To validate the "IF, THEN" theory, it is necessary to track the change in the number of working nurse anesthetists in Sierra Leone. In particular, a baseline number is needed. In 2024, the WFSA published that the non-physician anesthesia provider (NPAP) density in Sierra Leone was 0.72 per 100,000 ~\cite{Tyler2024}. The WFSA reported a population of 83.06 (hundreds of thousands), which we can use to determine the number of NPAPs $\rightarrow 0.72*83.06 \thickapprox 59$. However, this cannot serve as a baseline for the number of nurse anesthetists in Sierra Leone, as NPAP includes additional practicioners that are not nurse anesthetists. Thus, a satisfactory baseline count currently does not exist.\\
+
+Hence, we propose an ennumeration of the current working nurse anesthetists in Sierra Leone. As stated above, this will enable us to measure the impact of our NADP. \\
+
+\section{Methods}
+We will ask the Ministry of Health (MoH) to provide a list of all registered nurse anesthetists working in Sierra Leone. If the MoH believe their records are too incomplete to support a baseline count of nurse anethetists, we will pivot our methodology. Instead, we will call each tertiary hospital in Sierra Leone registered with the MoH, and ask them to provide the name and credentials of each working nurse anesthetist. To confirm the provided credentials, we will check relevant databases. If a nurse anesthetists credentials cannot be verified, they will be excluded from the ennumeration. If a significant number of tertiary hospitals cannot be reached via call/email, then physical visits will be necessary, which may be too expensive to conduct. \\
+
+\section{Outcomes}
+The primary outcome will be the number of working nurse anesthetists in Sierra Leone. Secondary outcomes include the hospital and nationality (foreign or not-foreign) of each nurse anesthetist. The secondary outcomes will be helpful in identifying hospitals in Sierra Leone in most need of additional staff. \\
+
+% referenslistan
+% skriver vi långt så behövs en sidbrytning innan
+%\newpage % kommentera fram vid längre uppgifter
+\bibliographystyle{abbrv}
+\bibliography{bibliography}
+\end{document}% dokumentet avslutas

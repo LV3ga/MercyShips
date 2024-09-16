@@ -1,0 +1,19 @@
+How to proceed 
+
+-If ETA people only visit a single hospital, then the only indicator
+ we could get from them is SAO density (from Ministry of Health)
+
+-It seems like if we did the ennumeration of unmet need, we could 
+ do a lot of geospatial analysis.
+
+
+
+
+
+How to get indicators cheapest way possible.
+
+Actions
+-ETA at teaching hospital could get # of SAO practitioners
+
+-Ennumeration of unmet need could maybe lead to estimation of
+ surgical volume.
