@@ -1,0 +1,178 @@
+library(shiny)
+library(bslib)
+
+########################
+#    SHINY LESSON 1    #
+########################
+
+# Define UI for app that draws a histogram ----
+ui <- page_sidebar(
+  # App title ----
+  title = "Hello World!",
+  # Sidebar panel for inputs ----
+  sidebar = sidebar(
+    # Input: Slider for the number of bins ----
+    sliderInput(
+      inputId = "bins",
+      label = "Number of bins:",
+      min = 20,
+      max = 50,
+      value = 30
+    )
+  ),
+  # Output: Histogram ----
+  plotOutput(outputId = "distPlot")
+)
+
+# Define server logic required to draw a histogram ----
+server <- function(input, output) {
+  
+  # Histogram of the Old Faithful Geyser Data ----
+  # with requested number of bins
+  # This exression that generates a histogram is wrapped in a call
+  # to renderPlot to indicate that:
+  #
+  # 1. It is "reactive" and therefore should be automatically
+  #    re-executed when inputs (input$bins) change
+  # 2. Its output type is a plot
+  output$distPlot <- renderPlot({
+    
+    x    <- faithful$waiting
+    bins <- seq(min(x), max(x), length.out = input$bins + 1)
+    
+    hist(x, breaks = bins, col = "orange", border = "white",
+         xlab = "Waiting time to next eruption (in mins)",
+         main = "Histogram of waiting times")
+    
+  })
+  
+}
+
+
+# Call to ShinyApp
+shinyApp(ui = ui, server = server)
+
+
+
+
+
+
+
+########################
+#    SHINY LESSON 2    #
+########################
+
+
+library(shiny)
+library(bslib)
+library(bsicons)
+
+# Define UI ----
+ui <- page_sidebar(
+  title = "title panel",
+  sidebar = sidebar("sidebar"),
+  card(
+    card_header("Card Header"),
+    "Card Body"
+  ),
+  value_box(
+    title = "Value box",
+    value = 100,
+    showcase = bsicons::bs_icon("bar-chart"),
+    theme = "teal"
+  )
+)
+
+# Define server logic
+server <- function(input, output) {}
+
+# Run the app
+shinyApp(ui = ui, server = server)
+
+
+
+
+
+########################
+#    SHINY LESSON 3    #
+########################
+library(shiny)
+library(bslib)
+library(bsicons)
+
+# Define UI ----
+ui <- page_sidebar(
+  title = "censusVis",
+  sidebar = sidebar(
+  "Create demographic maps 
+   with census information 
+   from the 2010 US Census.",
+  selectInput(
+    "select",
+    "Choose a variable to display",
+    choices = list("Percent White" = 1, "Percent Black" = 2, 
+                   "Percent Hispanic" = 3, "Percent Asian" = 4),
+    selected = 1
+  ),
+  sliderInput(
+    "slider_1",
+    "Ranges of Interest",
+    min = 0,
+    max = 100,
+    value = c(0, 100)
+  )
+  
+  ),
+)
+
+
+# Define server logic
+server <- function(input, output) {  
+}
+
+# Run the app
+shinyApp(ui = ui, server = server)
+
+
+########################
+#    SHINY LESSON 4    #
+########################
+
+library(shiny)
+library(bslib)
+library(bsicons)
+
+# Define UI ----
+ui <- page_sidebar(
+  title = "censusVis",
+  sidebar = sidebar(
+  "Create demographic maps 
+   with census information 
+   from the 2010 US Census.",
+  selectInput(
+    "select",
+    "Choose a variable to display",
+    choices = list("Percent White" = 1, "Percent Black" = 2, 
+                   "Percent Hispanic" = 3, "Percent Asian" = 4),
+    selected = 1
+  ),
+  sliderInput(
+    "slider_1",
+    "Ranges of Interest",
+    min = 0,
+    max = 100,
+    value = c(0, 100)
+  )
+  
+  ),
+)
+
+
+# Define server logic
+server <- function(input, output) {
+  
+}
+
+# Run the app
+shinyApp(ui = ui, server = server)
+

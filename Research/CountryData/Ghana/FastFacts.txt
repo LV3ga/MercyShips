@@ -1,0 +1,35 @@
+(A) 2018-2019
+file:///C:/MercyShips/Research/CountryData/ALL/healthcare_workforce_WHO_Africa_2022.pdf
+
+(B) Up to 2021
+"C:\MercyShips\Research\CountryData\ALL\African_Health_Stats_2022.pdf"
+
+Total healthcare workers
+(A) 122183
+
+Number of Physician Generalists
+(A) 3316
+
+Number of Physician Specialists
+(A) 1090
+
+Number of Nurses/Midwives
+(A) 53452 (B) 112484
+
+Number of Dentists
+(A) 713
+
+Number of Pharmacists and Technicians
+(A) 2127
+
+Number of Laboratory personnel
+(A) 1563
+
+Number of Community health workers
+(A) 15820
+
+Number of Health managers and support staff
+(A) 24660
+
+Other health workers
+(A) 19442

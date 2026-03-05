@@ -1,0 +1,117 @@
+Study on MI for gam to investigate median p-value rule
+
+methods
+- utilized random forest and predictive mean matching imputation
+  to investigate a variety of rules for combinin GAMs after MI with 
+  binary and normally distributed outcomes
+- investigated multiple pooling procedures including D2 method, Cauchy combination
+  and the median p-value (MPV) rule
+  
+Results
+- median p-value rule performs as well as if not better than other methods examined
+
+
+GAM
+GAM may require too much data for our purposes
+Fit = liklihood - lambda*wigglyness
+	where lambda = smoothing parameter
+		  likl
+R chooses optimal smoothing parameter automatically. 
+But I should choose it manually for each predictor, otherwise 
+pooling results won't mean anything bc coefficients are related to
+smoothing parameters. I could run a single GAM model and see what the 
+smoothing parameters look like for each variable, then use those for all GAMS
+
+I should look into how GAM selects smoothing parameters
+Recommended we fit models with REML
+
+Interpreting GAM
+Family: gaussian  MEANS RESIDUALS ARE NORMALLY DISTRIBUTED
+Link function: identity MEANS MODEL DOESN'T TRANSFORM PREDICTORS
+
+Formula:
+hw.mpg ~ s(weight) + s(rpm) + s(price) + s(comp.ratio) +
+  s(width) + fuel
+
+STD ERROR IS AVERAGE DISTANCE VALUES FALL FROM REGRESSION LINE
+Parametric coefficients:
+            Estimate Std. Error t value Pr(>|t|)
+(Intercept)   23.873      3.531   6.760 1.89e-10 ***
+fuelgas        7.571      3.922   1.931   0.0551 .
+ ---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+EDF IS HOW "WIGGLY" THE SMOOTH FUNCTION OF A PREDICTOR IS
+1 = STRAIGHT LINE, 2 = QUADRATIC
+REF.DF AND F ARE TEST STATISTICS USED IN ANOVA TESTS FOR OVERALL SIGNIFICANCE OF THE SMOOTH
+WHAT IS A "SIGNIFICANT SMOOTH TERM" -> ONE WHERE YOU CANNOT DRAW A HORIZONTAL LINE THROUGH
+THE 95% CI ON THE PLOT 
+Approximate significance of smooth terms:
+                edf Ref.df      F  p-value
+s(weight)     6.254  7.439 20.909  < 2e-16 ***
+s(rpm)        7.499  8.285  8.534 2.07e-09 ***
+s(price)      2.681  3.421  1.678    0.155
+s(comp.ratio) 1.000  1.001 18.923 2.22e-05 ***
+s(width)      1.001  1.001  0.357    0.551
+
+SO THE INTERPRETATION HERE IS
+	WEIGHT IS SIGNIFICANT (HORIZONTAL LINE DOESN'T FIT IN 95% CI ON PLOT) AND NONLINEAR
+	RPM IS SIGNIFICANT AND NONLINEAR
+	PRICE IS NOT SIGNIFICANT AND NONLINEAR
+	COMP.RATIO IS SIGNIFICANT AND LINEAR
+	WIDTH IS NOT SIGNIFICANT AND LINEAR
+	
+	
+I DON'T UNDERSTAND WHAT seWithMean IN
+plot(mod, select = 1, shade = TRUE, shade.col = "hotpink", 
+     shift = coef(mod)[1], seWithMean = TRUE)
+DOES
+
+
+HOW WELL DOES OUR MODEL FIT?
+USE GAM.CHECK() (BELOW)
+
+Method: REML   Optimizer: outer newton
+full convergence after 9 iterations. TELLS US IF MODEL CONVERGED. IF NOT, RESULTS ARE LIKELY INCORRECT. PERHAPS TOO MANY PARAMETERS FOR DATA
+Gradient range [-0.0001467222,0.00171085]
+(score 784.6012 & scale 2.868607).
+Hessian positive definite, eigenvalue range [0.00014,198.5]
+Model rank =  7 / 7 
+
+RESIDUALS SHOULD BE RANDOMLY DISTRIBUTED. SMALL P-VALUES
+INDICATES THAT THIS ISN'T THE CASE. THIS OFTEN MEANS NOT ENOUGH BASIS FUNCTIONS
+Basis dimension (k) checking results. Low p-value
+(k-index<1) may indicate that k is too low, especially
+if edf is close to k'.
+
+        k'  edf k-index p-value    
+s(x1) 3.00 1.00    0.35  <2e-16 ***
+s(x2) 3.00 2.88    1.00    0.52    
+ ---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1
+
+ALSO OUTPUTS PLOTS THAT ARE SUPER USEFUL
+SEE GAMCHECKPLOT1.png AND GAMCHECKPLOT2.png FOR GUIDANCE
+
+
+
+WITH GAMS, YOU ALSO HAVE TO WATCH OUT FOR CONCURVITY.
+
+WHAT'S CONCURVITY? FIRST, LET'S RECALL COLINEARITY FROM LINEAR MODELS
+IF TWO PREDICTOR VARIABLES HAVE A STRONG LINEAR RELATIONSHIP WITH EACH OTHER,
+IT CAN BE DIFFICULT TO FIT THE MODEL, BC THE OUTCOME VARIABLE COULD BE RESPONDING
+TO EITHER ONE. THIS CAN RESULT IN POORLY FIT MODELS WITH LARGE CONFIDENCE INTERVALS
+
+(SEE COLINEARITY.png)
+
+WITH GAMS, VARIABLES COULD HAVE CONVURVITY, MEANING ONE IS A SMOOTH CURVE OF ANOTHER.
+LIKE COLLINEARITY, THIS CAN LEAD TO POORLY FIT MODELS WITH LARGE CONFIDENCE INTERVALS.
+THIS IS BEST UNDERSTOOD BY VIEWING THE PNG BELOW.
+
+(SEE CONCURVITY1.png)
+
+
+USE THE CONVURVITY() FUNCTION TO CHECK FOR CONCURVITY
+I DON'T FULLY UNDERSTAND THE OUTPUT OF THE FUNCTION, JUST KNOW
+THAT IF A VALUE IS HIGHER THAN 0.8, THEN THERE IS SOME CONCURVITY 
+GOING ON. SEE THE PNGS BELOW

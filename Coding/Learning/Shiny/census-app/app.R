@@ -1,0 +1,131 @@
+##################
+#    Lesson 4    #
+##################
+
+
+library(shiny)
+library(bslib)
+library(bsicons)
+
+
+ui <- page_sidebar(
+  title = "censusVis",
+  sidebar = sidebar(
+    helpText(
+      "Create demographic maps with information from the 2010 US Census."    ),
+
+    selectInput(
+      "var",
+      label = "Choose a variable to display",
+      choices = 
+        c("Percent White",
+          "Percent Black",
+          "Percent Hispanic",
+          "Percent Asian"),
+      selected = "Percent White"
+    ),
+    sliderInput(
+      "range",
+      label = "Range of interest:",
+      min = 0, 
+      max = 100, 
+      value = c(0, 100)
+    )
+  ),
+  textOutput("selected_var"),
+  textOutput("selected_range")
+)
+
+server <- function(input, output) {
+
+  output$selected_var <- renderText({
+    paste("You have selected", input$var)
+  })
+
+  output$selected_range <- renderText({
+    paste("You have selected a range from ", input$range[1], " to ", input$range[2])
+  })
+
+}
+
+shinyApp(ui = ui, server = server)
+
+
+
+
+##################
+#    Lesson 5    #
+##################
+
+
+setwd("c:/MercyShips/Coding/Learning/Shiny/census-app")
+library(shiny)
+library(bslib)
+library(bsicons)
+library(maps)
+library(mapproj)
+source("helpers.R")
+counties <- readRDS("data/counties.rds")
+
+
+# User interface ----
+ui <- page_sidebar(
+  title = "censusVis",
+  sidebar = sidebar(
+    helpText(
+      "Create demographic maps with information from the 2010 US Census."
+    ),
+    selectInput(
+      "var",
+      label = "Choose a variable to display",
+      choices =
+        c(
+          "Percent White",
+          "Percent Black",
+          "Percent Hispanic",
+          "Percent Asian"
+        ),
+      selected = "Percent White"
+    ),
+    sliderInput(
+      "range",
+      label = "Range of interest:",
+      min = 0, 
+      max = 100, 
+      value = c(0, 100)
+    )
+  ),
+  card(plotOutput("map"))
+)
+
+server <- function(input, output) {
+  output$map <- renderPlot({
+    data <- switch(input$var,
+                   "Percent White" = counties$white,
+                   "Percent Black" = counties$black,
+                   "Percent Hispanic" = counties$hispanic,
+                   "Percent Asian" = counties$asian)
+
+    color <- switch(input$var,
+                    "Percent White" = "darkgreen",
+                    "Percent Black" = "black",
+                    "Percent Hispanic" = "darkorange",
+                    "Percent Asian" = "darkviolet")
+
+    legend <- switch(input$var,
+                     "Percent White" = "% White",
+                     "Percent Black" = "% Black",
+                     "Percent Hispanic" = "% Hispanic",
+                     "Percent Asian" = "% Asian")
+
+    percent_map(data, color, legend, input$range[1], input$range[2])
+  })
+}
+
+# Run app ----
+shinyApp(ui, server)
+
+
+counties[1:10,]
+
+
