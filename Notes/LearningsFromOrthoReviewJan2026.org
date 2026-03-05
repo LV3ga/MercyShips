@@ -1,0 +1,42 @@
+#+TITLE: Notes and Learnings from January 2026 Orthopedic Review on GLM
+#+AUTHOR: Lucas Ricardo Vega
+
+
+
+
+* Problems encountered
+
+** Lack of patient "funnel"
+***** Early in the review process, patients and caregivers would enter the LCU and go wherever they pleased.
+***** There was no front door screening to check off who had arrived. Additionally, there wasn't anyone sending
+***** patients to get consented (which is always the first step). 
+
+
+** No formal checks and procedures for pregnancy and presence of caregiver.
+***** A 14 year old was pregnant and I was not informed. I found this out from Dr. Ryan the day after.
+***** I later checked her file and found (thankfully) she did not get an xRay. My guess is that Naomi was smart
+***** and decided to ask the patient at her own discretion, and then subsequently chose NOT to fill out
+***** an xRay form. Thankfully, Naomi made the right decision. However, this kind of issue being left to individual
+***** discretion, rather than a existing procedure, is not good.
+
+***** Two girls (one older, one younger) entered the LCU. At this point, we had implemented front door screening.
+***** Thus, we identified the younger girl on the sheet, and assumed the older girl was her caregiver. This ended up
+***** being incorrect. The older girl WAS a patient herself and was without a caregiver. She ended up consenting by herself
+***** (which is a mystery and of itself) and went through all of the evaluations before we realized what had happened.
+***** Without going into too much detail, this issue was resolved by contacting the parent over the phone, who agreed to the
+***** consent. However, this could have been bad.
+
+
+** Patients wandering out of LCU
+***** This was later fixed when we kept the doors closed, but before this, there were some patients that snuck out.
+
+
+** Nobody available to walk patients to and from radiology
+***** We just lacked the human resources. I occasionally would be the one to run down and check if patients were done with
+***** radiology. Occasionally, I would get busy and nobody would be available. Most of the time, patients would easily find their
+***** way back. Other times, they would wander around and look for their friends.
+
+
+
+
+* Proposed improvements

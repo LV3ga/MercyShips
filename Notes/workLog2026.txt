@@ -17,7 +17,7 @@ To Complete Next Work Day
 Notes
 -
 
-Mar 3 2026
+Mar 2 2026
 To do
 -Finish organizing Orthopedics Review Test
 -Finish entering data on critical feedback questionnaire and analyze data
@@ -45,7 +45,7 @@ Notes
 	 (entered by Naomi) that don't map to any uploaded file.
 
 
-Mar 4 2026
+Mar 3 2026
 To do
 -Finish organizing Orthopedics Review Test
 -Finish entering data on critical feedback questionnaire and analyze data
@@ -63,7 +63,7 @@ Notes
 -
 
 
-Mar 5 2026
+Mar 4 2026
 To do
 -Finish organizing Orthopedics Review Test
 -Finish entering data on critical feedback questionnaire and analyze data
@@ -73,8 +73,58 @@ To do
 - Reorganize files like Zoey said.
 - Work on MS review program (automated stats)  
 Accomplished
+-Finished organizing file structure (old and new example)
+-Pushed new git changes
+To Complete Next Work Day
+-Present new file system to Zoey
+-Check if Dr. Ryan emailed back
+-Ask Zoey about missing survey files
+-Look at new addendum notes
+-Notes and learnings have not done yet
+-Pull git upload on laptop
+Notes
+-
+
+
+
+Mar 5 2026
+To do
+-Update addendum and other things
+-look over documents that zoey sent and come up with questions
+-   add questions to notes and learnings Jan 2026
+- Work on MS review program (automated stats)
+-Pull git stuff onto laptop
+Accomplished
+-Finished editing 2026 addendum (ready for mirjam review)
 -
 To Complete Next Work Day
 -
 Notes
+-Meeting Notes
+	- Zoey found extra critical feedback questions and will upload them
+	- take denny suggestions for file structure, keep og first structure
+	- update Dates/Length of Project section on 2026 Addendum
+	- Treat GLM 2026 addendum as example and create template
+	- Miram will be called to be updated on Ortho Review and also give her feedback on the Addendum
+
+
+
+
+Mar 5 2026
+To do
+- Add questions to notes and learnings Jan 2026
+- Work on MS review program (automated stats)
+- Remove Orthopedics TEST on March 12 2026
+Accomplished
+-Finished editing 2026 addendum (ready for mirjam review)
+-Decided to leave orthopedics folder as is. Zoey seemed skeptical about separating by years at all.
+ Thus, I will just leave it as is for now, and in a week I will hide the Orthopedics TEST
+To Complete Next Work Day
 -
+Notes
+-Meeting Notes
+	- Zoey found extra critical feedback questions and will upload them
+	- take denny suggestions for file structure, keep og first structure
+	- update Dates/Length of Project section on 2026 Addendum
+	- Treat GLM 2026 addendum as example and create template
+	- Miram will be called to be updated on Ortho Review and also give her feedback on the Addendum
