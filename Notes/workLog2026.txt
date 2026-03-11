@@ -1,4 +1,5 @@
 
+ 
 Feb 26 2026
 To do
 -Finish organizing Orthopedics Review Test
@@ -110,21 +111,44 @@ Notes
 
 
 
-Mar 5 2026
+Mar 9 2026
 To do
 - Add questions to notes and learnings Jan 2026
 - Work on MS review program (automated stats)
 - Remove Orthopedics TEST on March 12 2026
 Accomplished
--Finished editing 2026 addendum (ready for mirjam review)
--Decided to leave orthopedics folder as is. Zoey seemed skeptical about separating by years at all.
- Thus, I will just leave it as is for now, and in a week I will hide the Orthopedics TEST
+-sent email to everyone asking for time to meet with yael
+-sent email to yael abt statistical analysis plan
+-worked on R analysis code
+To Complete Next Work Day
+-Finish transforming data table
+Notes
+-
+
+
+
+Mar 10 2026
+To do
+- Add questions to notes and learnings Jan 2026
+- Work on MS review program (automated stats)
+- Remove Orthopedics TEST on March 12 2026
+Accomplished
+-Created new dataframe with the correct amount of rows (not a row for each stage of care)
+To Complete Next Work Day
+-Finish filling new dataframe, and then make it work with new data and do analysis on alignment
+Notes
+-
+
+
+
+Mar 11 2026
+To do
+- Add questions to notes and learnings Jan 2026
+- Work on MS review program (automated stats)
+- Remove Orthopedics TEST on March 12 2026
+Accomplished
+-
 To Complete Next Work Day
 -
 Notes
--Meeting Notes
-	- Zoey found extra critical feedback questions and will upload them
-	- take denny suggestions for file structure, keep og first structure
-	- update Dates/Length of Project section on 2026 Addendum
-	- Treat GLM 2026 addendum as example and create template
-	- Miram will be called to be updated on Ortho Review and also give her feedback on the Addendum
+-
