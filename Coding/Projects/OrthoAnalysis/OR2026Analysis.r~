@@ -1,0 +1,6 @@
+setwd("c:/MercyShips/Coding/Projects/OrthoAnalysis")
+
+OR2026Data <- read.csv("OR2026Data.csv")
+
+
+nrow(OR2026Data)

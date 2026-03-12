@@ -1,0 +1,15 @@
+setwd("c:/MercyShips/Coding/Projects/OrthoAnalysis")
+
+                                        # Reading in data
+data <- read.csv("OR2026DataSelected.csv")
+
+                                        # SLG vs SLF preop BMI
+boxplot(data$preopBMI[grepl("SLF", data$ID)], data$preopBMI[grepl("SLG", data$ID)])
+boxplot(data$age[grepl("SLF", data$ID)], data$age[grepl("SLG", data$ID)])
+
+
+                                        # alignment linear model
+modelAlign <- lm(oneyearAlign ~ age + preopBMI + sex + preopAlign, data = data)
+summary(modelAlign)
+
+plot(data$age, data$preopAlign - data$oneyearAlign)
