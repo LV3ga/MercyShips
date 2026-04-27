@@ -1,0 +1,70 @@
+                                        # This file uses OR2026DataTransformed.csv which was produced by
+                                        # OR2026DataTransform.r - which transforms the row oriented dataset
+                                        # into a column oriented dataset, and, selects only legs that were
+                                        # operated on.
+
+                                        # In this file, legs are further filtered to only include blounts legs
+                                        # and variables are cleaned and selected for analysis.
+                                        # The result is stored in OR2026DataSelectedBlounts.csv
+###################################################################################################################
+
+                                        # Setting directory
+setwd("c:/MercyShips/Coding/Projects/OrthoAnalysis")
+
+
+
+                                        # Reading in data
+OR2026Data <- read.csv("OR2026DataTransformed.csv")
+
+
+
+                                        # Selecting only legs with blounts in the diagnosis column
+                                        #                                 ^^^ some legs still don't have blounts!
+                                        # Also re-labeling row indicies so numbers aren't skipped
+OR2026Data <- OR2026Data[grepl("blounts", tolower(OR2026Data$DIagnosis)), ]
+rownames(OR2026Data) <- 1:nrow(OR2026Data)
+
+
+
+                                        # Some patients had both legs operated on, but only one leg had blounts.
+                                        # However, the diagnosis column doesn't distinguish between legs.
+                                        # Therefore, we need to further filter legs by mannually looking at the diagnosis
+nrow(OR2026Data)
+OR2026Data[,c(1, 2, 11, 12)]
+
+
+
+                                        # Removing legs that do not have blounts disease (there were two)
+OR2026Data <- OR2026Data[-c(59, 79),]
+rownames(OR2026Data) <- 1:nrow(OR2026Data)
+
+
+
+                                        # Storing data relevant for analysis
+ID <- OR2026Data$PatientID
+firstName <- OR2026Data$First.name
+lastName <- OR2026Data$Last.Name.
+age <- as.numeric(OR2026Data$Age)
+preopBMI <- as.numeric(OR2026Data$Preop.BMI..V11.)
+sex <- gsub(" ", "", toupper(OR2026Data$Sex))
+diagnosis <- ifelse(grepl("blounts", tolower(OR2026Data$DIagnosis)), "blounts", ifelse( grepl("rickets", tolower(OR2026Data$DIagnosis)), "rickets", "other"))
+surgeryName <- OR2026Data$Name.of.Surgery.Done
+preopAlign <-as.numeric(OR2026Data$Preop.cleaned_Alignment..V2..in.cm)
+dischargeAlign <-as.numeric(OR2026Data$Discharge.cleaned_Alignment..V2..in.cm)
+oneyearAlign <-as.numeric(OR2026Data$Oneyear.cleaned_Alignment..V2..in.cm)
+changeAlign <- abs(oneyearAlign - dischargeAlign)
+
+
+
+                                        # Combining relevant data into spreadsheet to be analyzed
+OR2026DataAnalysis <- cbind(ID, firstName, lastName, age, preopBMI, sex, diagnosis, surgeryName,  preopAlign, dischargeAlign, oneyearAlign, changeAlign)
+
+
+
+
+
+
+                                        # Exporting Data
+write.csv(OR2026DataAnalysis, "OR2026DataSelectedBlounts.csv")
+
+

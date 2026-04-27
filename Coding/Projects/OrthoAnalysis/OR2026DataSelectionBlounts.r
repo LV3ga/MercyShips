@@ -1,13 +1,46 @@
+                                        # This file uses OR2026DataTransformed.csv which was produced by
+                                        # OR2026DataTransform.r - which transforms the row oriented dataset
+                                        # into a column oriented dataset, and, selects only legs that were
+                                        # operated on.
 
-                                        # In this file, variables are cleaned and selected for analysis.
-                                        # The result is stored in OR2026DataSelected.csv
+                                        # In this file, legs are further filtered to only include blounts legs
+                                        # and variables are cleaned and selected for analysis.
+                                        # The result is stored in OR2026DataSelectedBlounts.csv
 ###################################################################################################################
 
                                         # Setting directory
 setwd("c:/MercyShips/Coding/Projects/OrthoAnalysis")
 
+
+
                                         # Reading in data
 OR2026Data <- read.csv("OR2026DataTransformed.csv")
+
+
+
+                                        # Selecting only legs with blounts in the diagnosis column
+                                        #                                 ^^^ some legs still don't have blounts!
+                                        # Also re-labeling row indicies so numbers aren't skipped
+OR2026Data <- OR2026Data[grepl("blounts", tolower(OR2026Data$DIagnosis)), ]
+rownames(OR2026Data) <- 1:nrow(OR2026Data)
+
+
+
+                                        # Some patients had both legs operated on, but only one leg had blounts.
+                                        # However, the diagnosis column doesn't distinguish between legs.
+                                        # Therefore, we need to further filter legs by mannually looking at the diagnosis
+nrow(OR2026Data)
+OR2026Data[,c(1, 2, 11, 12)]
+
+
+
+                                        # Removing legs that do not have blounts disease (there were two)
+OR2026Data <- OR2026Data[-c(59, 79),]
+rownames(OR2026Data) <- 1:nrow(OR2026Data)
+
+
+
+                                        # Storing data relevant for analysis
 
 # Demographics
 ID <- OR2026Data$PatientID
@@ -54,37 +87,11 @@ twoyearEQ.5 <- OR2026Data$Twoyear.EQ.5..Feeling.worried..sad..or.unhappy..How.mu
 twoyearEQ.final <- OR2026Data$Twoyear.EQ..Health.Rating..How.good.or.bad.is.your.health.today...scale.of.0.100..with.0.being.worst.health.and.100.being.best.health.
 
 
-#Pain Data
-preopBestPain <- as.numeric(OR2026Data[ , which(colnames(OR2026Data) == "Preop.Best.Pain")])
-dischargeBestPain <- as.numeric(OR2026Data[ , which(colnames(OR2026Data) == "Discharge.Best.Pain")])
-oneyearBestPain <- as.numeric(OR2026Data[ , which(colnames(OR2026Data) == "Oneyear.Best.Pain")])
-preopWorstPain <- as.numeric(OR2026Data[ , which(colnames(OR2026Data) == "Preop.Worst.Pain")])
-dischargeWorstPain <- as.numeric(OR2026Data[ , which(colnames(OR2026Data) == "Discharge.Worst.Pain")])
-oneyearWorstPain <- as.numeric(OR2026Data[ , which(colnames(OR2026Data) == "Oneyear.Worst.Pain")])
-
-
-
                                         # Combining relevant data into spreadsheet to be analyzed
-
-
-
-
-
-
-
-
-
-
-OR2026DataAnalysis <- cbind(ID, firstName, lastName, age, preopBMI, sex, diagnosis, surgeryName,
-                            preopAlign, dischargeAlign, oneyearAlign, changeAlign,
-                            preopEQ.1, preopEQ.2, preopEQ.3, preopEQ.4, preopEQ.5, preopEQ.final,
-                            dischargeEQ.1, dischargeEQ.2, dischargeEQ.3, dischargeEQ.4, dischargeEQ.5,
-                            dischargeEQ.final, oneyearEQ.1, oneyearEQ.2, oneyearEQ.3, oneyearEQ.4,
-                            oneyearEQ.5, oneyearEQ.final, twoyearEQ.1, twoyearEQ.2, twoyearEQ.3,
-                            twoyearEQ.4, twoyearEQ.5, twoyearEQ.final, preopBestPain, preopWorstPain,
-                            dischargeBestPain, dischargeWorstPain, oneyearBestPain, oneyearWorstPain)
+OR2026DataAnalysis <- cbind(ID, firstName, lastName, age, preopBMI, sex, diagnosis, surgeryName,  preopAlign, dischargeAlign, oneyearAlign, changeAlign, preopEQ.1, preopEQ.2, preopEQ.3, preopEQ.4, preopEQ.5, preopEQ.final,
+                            dischargeEQ.1, dischargeEQ.2, dischargeEQ.3, dischargeEQ.4, dischargeEQ.5, dischargeEQ.final,
+                            oneyearEQ.1, oneyearEQ.2, oneyearEQ.3, oneyearEQ.4, oneyearEQ.5, oneyearEQ.final,
+                            twoyearEQ.1, twoyearEQ.2, twoyearEQ.3, twoyearEQ.4, twoyearEQ.5, twoyearEQ.final)
 
                                         # Exporting Data
-write.csv(OR2026DataAnalysis, "OR2026DataSelected.csv")
-
-
+write.csv(OR2026DataAnalysis, "OR2026DataSelectedBlounts.csv")
