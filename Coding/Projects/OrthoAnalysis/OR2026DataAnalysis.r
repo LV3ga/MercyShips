@@ -1,5 +1,4 @@
 
-
 library(scales)
 library(ggplot2)
 library(tidyverse)
@@ -68,6 +67,9 @@ SLG_patients <- data.frame(ID = d
                                         # EuroQol and Pain Data
                                         # Converting columns to numeric
 euroQol_Data <- as.data.frame(apply(data[, which(grepl("EQ", colnames(data)))],2, as.numeric))
+euroQol_Data$preop.EQ.score <- (1- (rowSums(euroQol_Data[, 1:5])/20)) * 100
+euroQol_Data$discharge.EQ.score <- (1- (rowSums(euroQol_Data[, 7:11])/20)) * 100
+euroQol_Data$oneyear.EQ.score <- (1- (rowSums(euroQol_Data[, 13:17])/20)) * 100
 pain_Data <- as.data.frame(apply(data[, which(grepl("Pain", colnames(data)))],2, as.numeric))
 euroQol_Data <- cbind(ID = data$ID, euroQol_Data)
 pain_Data <- cbind(ID = data$ID, pain_Data)
@@ -111,9 +113,6 @@ SLG_Pain_Data <- SLG_Pain_Data[!duplicated(SLG_Pain_Data[c('ID')]), ]
 
 
 
-                                        # Jitter Plots
-ggplot(SLG_Pain_Data[, which(grepl("Worst", colnames(SLG_Pain_Data)))])
-
 
                                         # Writing SLG Pain Data, SLG EuroQol Data and SLF EuroQol Data to csv
 write.csv(SLF_euroQol_Data, "OR2026SLFEuroQol.csv")
@@ -121,6 +120,9 @@ write.csv(SLG_euroQol_Data, "OR2026SLGEuroQol.csv")
 write.csv(SLG_Pain_Data, "OR2026SLGPain.csv")
                                         # Quality of Life - END
 ####################################################################################
+                                        # Plotting SLG Pain Data - START
+
+
 
 StageOfCare <- data.frame(Stage.Of.Care = c(rep("Pre-Op", nrow(SLG_Pain_Data)), rep("Discharge", nrow(SLG_Pain_Data)),  rep("One Year", nrow(SLG_Pain_Data))))
 
@@ -134,7 +136,7 @@ mean <- SLG_Pain_Plot_Data %>% group_by(Stage.Of.Care) %>% summarise(mean_val = 
 
 
 dat_text <- data.frame(
-  label = c("Mean = 3.89", "Mean = 1.88", "Mean = 0.88"),
+  label = c("Average = 3.89", "Average = 1.88", "Average = 0.88"),
   Stage.Of.Care = c("Pre-Op", "Discharge", "One Year"),
   x = c(0,0,0),
   y = c(3.1, 1.6, 0.6)
@@ -158,14 +160,192 @@ facet_grid(~factor(Stage.Of.Care, levels = c("Pre-Op", "Discharge", "One Year"))
 theme(panel.background = element_rect(fill = "aliceblue", colour = "grey"),
       strip.background  = element_rect(fill = "white", colour = "grey"),
       text = element_text(family = "serif", size = 11),
+      legend.position = "none",
+      legend.title = element_blank(),
       axis.text = element_text(size = rel(1.1)),
       axis.title.x = element_blank(),
       axis.text.x = element_blank(),
       axis.ticks.x = element_blank()) +
 labs(y = "Worst Pain Score (0-10)") +
+scale_x_continuous(breaks = NULL) 
+
+                                        # Plotting SLG Pain Data - END
+####################################################################################
+
+
+
+
+
+####################################################################################
+                                        # Plotting SLG EuroQOL Data - START
+
+
+                                        # SLG EuroQol Score Data
+StageOfCare.EQ <- data.frame(Stage.Of.Care = c(rep("Pre-Op", nrow(SLG_euroQol_Data)), rep("Discharge", nrow(SLG_euroQol_Data)),  rep("One Year", nrow(SLG_euroQol_Data))))
+
+EuroQol.Score  <- rbind(data.frame(Score = SLG_euroQol_Data$preop.EQ.score),
+        rbind( data.frame(Score = SLG_euroQol_Data$discharge.EQ.score),
+        data.frame(Score = SLG_euroQol_Data$oneyear.EQ.score)))
+
+SLG_euroQol_Plot_Data <- cbind(StageOfCare.EQ, EuroQol.Score)
+
+mean_euroQol <- SLG_euroQol_Plot_Data %>% group_by(Stage.Of.Care) %>% summarise(mean_val = mean(Score, na.rm = TRUE))
+
+
+dat_text_euroQol <- data.frame(
+  label = c("Average = 50.5", "Average = 89.4", "Average = 94.6"),
+  Stage.Of.Care = c("Pre-Op", "Discharge", "One Year"),
+  x = c(0,0,0),
+  y = c(48.3, 88, 93.3)
+)
+
+
+# create ggplot scatter plot
+# add horizontal line overlay at mean using geom_hline()
+# divide plot in facet using function facet_grid()
+ggplot(data = SLG_euroQol_Plot_Data, aes(x = c(0), y=Score)) +
+scale_y_continuous(breaks = pretty_breaks()) +
+geom_point(aes(colour = Stage.Of.Care), position = position_jitter(w = 0.1, h = 0)) + 
+geom_hline(data= mean_euroQol, aes(yintercept = mean_val,col=Stage.Of.Care))+
+geom_text(
+  data    = dat_text_euroQol,
+  mapping = aes(x = x, y = y, label = label),
+  family = "serif",
+  size = 3
+) +
+facet_grid(~factor(Stage.Of.Care, levels = c("Pre-Op", "Discharge", "One Year"))) +
+theme(panel.background = element_rect(fill = "aliceblue", colour = "grey"),
+      strip.background  = element_rect(fill = "white", colour = "grey"),
+      text = element_text(family = "serif", size = 11),
+      legend.title = element_blank(),
+      legend.position = "none",
+      axis.text = element_text(size = rel(1.1)),
+      axis.title.x = element_blank(),
+      axis.text.x = element_blank(),
+      axis.ticks.x = element_blank()) +
+labs(y = "EuroQol Score (0-100)") +
 scale_x_continuous(breaks = NULL) +
-scale_color_manual(values = c("red", "darkgreen", "blue"), labels = c("Patients at Pre-Op", "Patients at Discharge", "Patients at One Year")) +
+scale_fill_discrete(breaks=c("Pre-Op", "Discharge", "One Year")) +
 labs(fill = "Stages of Care")
 
 
 
+
+
+                                        # SLG EuroQol Health Ranking Data
+
+EuroQol.Final  <- rbind(data.frame(Score = SLG_euroQol_Data$preopEQ.final),
+        rbind( data.frame(Score = SLG_euroQol_Data$dischargeEQ.final),
+        data.frame(Score = SLG_euroQol_Data$oneyearEQ.final)))
+
+SLG_euroQol2_Plot_Data <- cbind(StageOfCare.EQ, EuroQol.Final)
+
+mean_euroQol2 <- SLG_euroQol2_Plot_Data %>% group_by(Stage.Of.Care) %>% summarise(mean_val = mean(Score, na.rm = TRUE))
+
+
+dat_text_euroQol2 <- data.frame(
+  label = c("Average = 40.5", "Average = 94.8", "Average = 97.5"),
+  Stage.Of.Care = c("Pre-Op", "Discharge", "One Year"),
+  x = c(0,0,0),
+  y = c(39, 93, 96)
+)
+
+
+# create ggplot scatter plot
+# add horizontal line overlay at mean using geom_hline()
+# divide plot in facet using function facet_grid()
+ggplot(data = SLG_euroQol2_Plot_Data, aes(x = c(0), y=Score)) +
+scale_y_continuous(breaks = pretty_breaks()) +
+geom_point(aes(colour = Stage.Of.Care), position = position_jitter(w = 0.1, h = 0)) + 
+geom_hline(data= mean_euroQol2, aes(yintercept = mean_val,col=Stage.Of.Care))+
+geom_text(
+  data    = dat_text_euroQol2,
+  mapping = aes(x = x, y = y, label = label),
+  family = "serif",
+  size = 3
+) +
+facet_grid(~factor(Stage.Of.Care, levels = c("Pre-Op", "Discharge", "One Year"))) +
+theme(panel.background = element_rect(fill = "aliceblue", colour = "grey"),
+      strip.background  = element_rect(fill = "white", colour = "grey"),
+      text = element_text(family = "serif", size = 11),
+      legend.position = "none",
+      legend.title = element_blank(),
+      axis.text = element_text(size = rel(1.1)),
+      axis.title.x = element_blank(),
+      axis.text.x = element_blank(),
+      axis.ticks.x = element_blank()) +
+labs(y = "Patient Reported Health (0-100)") +
+scale_x_continuous(breaks = NULL) +
+scale_fill_discrete(breaks=c("Pre-Op", "Discharge", "One Year")) +
+labs(fill = "Stages of Care")
+
+
+                                        # Plotting SLG EuroQol Data - END
+####################################################################################
+
+
+
+
+
+####################################################################################
+                                        # Plotting SLG Functional Score Data - START
+
+functionalData <- read.csv("functionalData.csv")
+functionalData <- functionalData[,which(grepl("AVERAGE", colnames(functionalData)))]
+names(functionalData) <- c("Functional.Preop.Score", "Functional.Discharge.Score", "Functional.OneYear.Score")
+
+
+
+                                        # SLG Functional Score Stage of Care Data
+StageOfCare.FUN <- data.frame(Stage.Of.Care = c(rep("Pre-Op", nrow(functionalData)), rep("Discharge", nrow(functionalData)),  rep("One Year", nrow(functionalData))))
+
+Functional.Score  <- rbind(data.frame(Score = functionalData$Functional.Preop.Score),
+        rbind( data.frame(Score = functionalData$Functional.Discharge.Score),
+        data.frame(Score = functionalData$Functional.OneYear.Score)))
+
+functionalScore_Plot <- cbind(StageOfCare.FUN, Functional.Score)
+
+mean_FUN <- functionalScore_Plot %>% group_by(Stage.Of.Care) %>% summarise(mean_val = mean(Score, na.rm = TRUE))
+
+
+dat_text_FUN <- data.frame(
+  label = c("Average = 3.41", "Average = 8.20", "Average = 9.05"),
+  Stage.Of.Care = c("Pre-Op", "Discharge", "One Year"),
+  x = c(0,0,0),
+  y = c(3.2, 7.8, 8.85)
+)
+
+
+# create ggplot scatter plot
+# add horizontal line overlay at mean using geom_hline()
+# divide plot in facet using function facet_grid()
+ggplot(data = functionalScore_Plot, aes(x = c(0), y=Score)) +
+scale_y_continuous(breaks = pretty_breaks()) +
+geom_point(aes(colour = Stage.Of.Care), position = position_jitter(w = 0.1, h = 0)) + 
+geom_hline(data= mean_FUN, aes(yintercept = mean_val,col=Stage.Of.Care))+
+geom_text(
+  data    = dat_text_FUN,
+  mapping = aes(x = x, y = y, label = label),
+  family = "serif",
+  size = 3
+) +
+facet_grid(~factor(Stage.Of.Care, levels = c("Pre-Op", "Discharge", "One Year"))) +
+theme(panel.background = element_rect(fill = "aliceblue", colour = "grey"),
+      strip.background  = element_rect(fill = "white", colour = "grey"),
+      text = element_text(family = "serif", size = 11),
+      legend.position = "none",
+      legend.title = element_blank(),
+      axis.text = element_text(size = rel(1.1)),
+      axis.title.x = element_blank(),
+      axis.text.x = element_blank(),
+      axis.ticks.x = element_blank()) +
+labs(y = "Average Functional Score (0-10)") +
+scale_x_continuous(breaks = NULL) +
+scale_fill_discrete(breaks=c("Pre-Op", "Discharge", "One Year")) +
+labs(fill = "Stages of Care")
+
+
+
+
+                                        # Plotting SLG Functional Score Data - END
+####################################################################################

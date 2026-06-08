@@ -1,4 +1,7 @@
 
+
+
+
  
 Feb 26 2026
 To do
@@ -147,8 +150,419 @@ To do
 - Work on MS review program (automated stats)
 - Remove Orthopedics TEST on March 12 2026
 Accomplished
+- Finished filling new dataframe and made it work with new data and did analysis alignment
+To Complete Next Work Day
+- Check email about setting up meeting with yael
+- Prepare notes for Denny and zoey
+Notes
+- Denny and Zoey Meeting Notes
+  - It seems age could have an effect on alignment, but a small one.
+  - * talk about differences between SLF and SLG
+
+
+
+Dr. Yael Meeting notes
+-Introductions (who's who) DONE
+-What are we doing with the ortho review (high level overview) 
+-Answer her questions
+-need someone to approve statistical analysis plan
+-need someone to select single variable
+-need someone to help interpret results and give input during data analysis
+-what is your availability (jump on a call once a month to answer questions, review documents)
+
+
+Dr. Yael Suggestions
+-consider ethics
+-important outcomes mechanical axis / MAD
+
+
+
+Mar 18 2026
+To do
+- Add questions to notes and learnings Jan 2026
+- Enter hours with new HR system
+- Work on MS review program (automated stats)
+- Remove Orthopedics TEST on March 12 2026
+Accomplished
 -
+To Complete Next Work Day
+- Check email about setting up meeting with yael
+- Prepare notes for Denny and zoey
+Notes
+- Denny Meeting Notes
+  - May need my help on workforce study w/ Dr. Mamady
+  - Enter hours in new HR software (Dayforce)
+
+
+
+Mar 30 2026
+To do
+- Add questions to notes and learnings Jan 2026
+- Enter hours with new HR system
+- Work on MS review program (automated stats)
+- Remove Orthopedics TEST on March 12 2026
+Accomplished
+- Worked on ortho country offices report 2026
+- 
+To Complete Next Work Day
+- Try to meet with Denny and Zoey
+Notes
+- Denny Meeting Notes
+  - Dr. Ryan is still MIA and we need to get the
+    country offices report done. Perhaps we should
+    just focus on functional goals/EuroQOL/pain scores.
+
+
+
+Mar 31 2026
+To do
+- Add questions to notes and learnings Jan 2026
+- Enter hours with new HR system
+- Work on MS review program (automated stats)
+Accomplished
+- 
+To Complete Next Work Day
+-
+Notes
+- Denny Meeting Notes
+
+
+Apr 10 2026
+To do
+- Work on MS review program (automated stats)
+- Email Dr. Ryan on new email: moffattr@tcd.ie
+- Finish uploading and analyzing critical feedback responses
+- Email Dr. Yael comments about study proposal and about approval on her end and about patient cohort size (message Dr. Rachel also since she requested patient numbers!)
+- Write summary report
+Accomplished
+- Emailed Dr. Yael and Rachel with cohort numbers and notes regarding study proposal 
+To Complete Next Work Day
+- Work on summary report
+Notes
+-
+
+
+
+Apr 13 2026
+To do
+- Work on MS review program (automated stats)
+- Email Dr. Ryan on new email: moffattr@tcd.ie
+- Finish uploading and analyzing critical feedback responses
+- Write summary report
+Accomplished
+- Worked on summary report by getting QOL data
+To Complete Next Work Day
+- Finish getting QOL  data
+Notes
+- Denny Meeting Notes
+  - Dr. Rachel got in touch with Dr. Ryan and he said he'll have the radiology entered by mid may.
+
+
+Apr 14 2026
+To do
+- Work on MS review program (automated stats)
+- Email Dr. Ryan on new email: moffattr@tcd.ie
+- Finish uploading and analyzing critical feedback responses
+- Write summary report
+Accomplished
+- Got all QOL data in spreadsheet
+To Complete Next Work Day
+- Create plots start report
+Notes
+- Denny Meeting Notes
+  - Dr. Rachel got in touch with Dr. Ryan and he said he'll have the radiology entered by mid may.
+
+
+Apr 22 2026
+To do
+- Work on MS review program (automated stats)
+- Email Dr. Ryan on new email: moffattr@tcd.ie
+- Finish uploading and analyzing critical feedback responses
+- Write summary report
+Accomplished
+- Nearly finished SLG pain plot for country report
+To Complete Next Work Day
+- Finish Plots
+- Add to skeleton report
+Notes
+- Denny Meeting Notes
+  - Dr. Rachel got in touch with Dr. Ryan and he said he'll have the radiology entered by mid may.
+
+
+Apr 24 2026
+To do
+- Finish uploading and analyzing critical feedback responses
+- Write summary report
+- Find old indicator bank to compare to new theory of change 
+Accomplished
+- Met with Denny and talked about new theory of change
 To Complete Next Work Day
 -
 Notes
 -
+
+
+May 5 2026
+To do
+- Address Mirjam suggestions in country offices report
+Accomplished
+- Addressed Mirjam's comments (except the narrative about the patient)
+- Messaged Dr. Rachel and Zoey about patient narrative
+- Added row numbers to categories of responses
+To Complete Next Work Day
+- Meet with Mirjam
+- Create presentation on critical feedback.
+Notes
+-
+
+May 6 2026
+To do
+- 
+Accomplished
+- Met with Mirjam
+- Finished editing OR 2026 Offices Report with Mirjams feedback
+- Worked on completing critical feedback report
+To Complete Next Work Day
+- Finish critical feedback report
+- Reach out to Nadia about creating presentation/infographic for national
+    offices
+- Reach out to Michelle Ball about Nadia and making this report something for
+    national offices
+    etc.
+- Reach out to Kyle about leadlines in compass
+  
+Notes
+- Mirjam Meeting Notes
+  - Reach out to Nadia about creating presentation/infographic for national
+    offices
+  - Reach out to Michelle Ball about Nadia and making this report something for
+    national offices
+  - Simplify report even more (replace mean with average, replace 3.89 with 3.9,
+    etc.
+  - Try throwing it in AI
+  - Reach out to Kyle about leadlines in compass
+  -
+
+
+
+May 7 2026
+To do
+- 
+Accomplished
+- Met with Mirjam
+To Complete Next Work Day
+- Meet with Mirjam
+- Create presentation on critical feedback.
+Notes
+- Mirjam Meeting Notes
+  - Reach out to Nadia about creating presentation/infographic for national
+    offices
+  - Reach out to Michelle Ball about Nadia and making this report something for
+    national offices
+  - Simplify report even more (replace mean with average, replace 3.89 with 3.9,
+    etc.
+  - Try throwing it in AI
+  - Reach out to Kyle about leadlines in compass
+  - 
+
+
+May 8 2026
+To do
+- Get approval from Mirjam to send our report
+- Reach out to Nadia about creating presentation/infographic for national
+  offices
+- Reach out to Michelle Ball about Nadia and making this report something for
+  national offices
+  etc.
+- Reach out to Kyle about leadlines in compass
+- Look at indicator bank and do something I'm not sure.
+- Look at training on compass
+Accomplished
+- Attented PQI team meeting and shared progress on ortho/critical feedback
+  reports
+To Complete Next Work Day
+-
+Notes
+- 
+
+
+
+May 13 2026
+To do
+- Prepare presentation for all hands meeting
+- Look at indicator bank and do something I'm not sure.
+- Look at training on compass
+- Prepare presentation for ortho review update meeting
+  - Organize relevant documents
+Accomplished
+- Met with Denny and Zoey 
+To Complete Next Work Day
+-
+Notes
+- Denny and Zoey Meeting Notes
+  - I should meet with Mirjam on documenting the review process
+  - I should eventually meet with Brian Holland (director of healthcare policy).
+  - 
+
+
+
+May 14 2026
+To do
+- Look over Dr. Yael ethics approval plan and send her any edits.
+- Prepare presentation for all hands meeting
+- Prepare blog post for compass
+- Look over Zoey's document (see notes) and add comments/questions.
+- Reach out to comms/global brand for creating infographic
+- Look at indicator bank and do something I'm not sure.
+- Look at training on compass
+Accomplished
+- Led presentation on ortho update
+- Sent out country offices and critical feedback report to people
+To Complete Next Work Day
+-
+Notes
+- I got an email from Dr. Ryan. He is 3/4 finished with radiology
+  data entry.
+- Mirjam and I are going to meet on Friday the 22 to discuss creating
+  documentation for this report. In the meantime, we are going to add
+  comments to Zoey's document "Patient Follow Up Review draft planning
+  document"
+- Ortho Review Update Meeting Notes
+  - At the beginning of the meeting, Dr. Yael asked if we are only
+    considering patients from Sierra Leone for research. We agreed
+    that the answer was yes.
+  - Dr. Yael said she can't get ethics approval. Can only come
+    from Mercy Ships or Sierra Leone.
+  - Dr. Yael proposed AI guided consent process. Should be sending materials.
+  - As soon as we submit ethics approval to MS, denny will ask the main guy
+    about a timeline
+  - There is a statistical coefficient to report how similar xray readings
+    are between two separate doctors.
+
+
+May 19 2026
+To do
+- Prepare presentation for all hands meeting
+- Prepare blog post for compass
+- Look over Zoey's document (see notes) and add comments/questions.
+- Reach out to comms/global brand for creating infographic
+- Ask Mirjam about what we would do with Sync meetings
+  - Present results from ortho review?
+  - Suggest new review?
+- Look at indicator bank and do something I'm not sure.
+- Look at training on compass
+Accomplished
+- Told Dr. Yael to send ethics approval plan
+- Reached out to Kyle Stec about global branding infographic
+- Looked over the MSI research strategy document and added a note
+- Ask zoey what were her original intentions with her Patient Follow Up Review
+  draft planning document
+To Complete Next Work Day
+- Finish Analysis and Dissemination section on Zoey's document
+- Also add to the planning section. Maybe add to the document a
+  step by step procedure.
+Notes
+- 
+
+
+May 20 2026
+To do
+- Prepare presentation for all hands meeting
+- Prepare blog post for compass
+- Look over Zoey's document (see notes) and add comments/questions.
+- Reach out to comms/global brand for creating infographic
+- Ask Mirjam about what we would do with Sync meetings
+  - Present results from ortho review?
+  - Suggest new review?
+- Look at indicator bank and do something I'm not sure.
+- Look at training on compass
+Accomplished
+- Worked on Zoey's document
+To Complete Next Work Day
+- Finish making step by step plan in Zoey's document
+Notes
+- Brian Meeting Notes
+  - What is our goal for research?
+    - To maximize research output?
+    - To elevate African researchers?
+    - To be more of a connector? Linking orgs to other orgs?
+  - Zoey thinks that maximizing research output is unfeasbile bc we
+    need more researchers. She also thinks connecting resources is
+    a good thing, and feasible with our data.
+  - Denny: We funded research in Guinea. We also provided the data
+    for African ministires of health to develope their NSOAP.
+
+
+May 26 2026
+To do
+- Prepare presentation for all hands meeting
+- Prepare blog post for compass 
+- Look over Zoey's document (see notes) and add comments/questions.
+- Reach out to comms/global brand for creating infographic
+- Consider sync meetings as a possible way of communicating findings.
+- Look at indicator bank and do something I'm not sure.
+- Look at training on compass
+Accomplished
+- Finished Presentation
+To Complete Next Work Day
+- Finish making step by step plan in Zoey's document
+Notes
+- Brian Meeting Notes
+  - What is our goal for research?
+    - To maximize research output?
+    - To elevate African researchers?
+    - To be more of a connector? Linking orgs to other orgs?
+  - Zoey thinks that maximizing research output is unfeasbile bc we
+    need more researchers. She also thinks connecting resources is
+    a good thing, and feasible with our data.
+  - Denny: We funded research in Guinea. We also provided the data
+    for African ministires of health to develope their NSOAP.
+
+
+
+May 27 2026
+To do
+- Prepare presentation for all hands meeting
+- Prepare blog post for compass 
+- Look over Zoey's document (see notes) and add comments/questions.
+- Reach out to comms/global brand for creating infographic
+- Consider sync meetings as a possible way of communicating findings.
+- Look at indicator bank and do something I'm not sure.
+- Look at training on compass
+Accomplished
+- Presented at all hands meeting.
+To Complete Next Work Day
+- Finish making step by step plan in Zoey's document
+Notes
+- Recommendations preceed who needs to be involved.
+- DMS wants to have quarterly meetings for every specialty
+- Have critical feedback meeting to discuss before DMS meeting
+- Meriyll (leading hospital director)
+- Sent critical feedback report to people
+- Work on filling out project proposal for new ortho review
+- Nadia will work with visual
+- Document DMS process
+- Add thyroid discussion to end of orthopedic presentation for
+  DMS meeting. Or just a note that we want to expand into other diagnoses.
+
+
+
+May 28 2026
+To do
+- UPDATE ORTHO GROUP CHAT ONCE A WEEK
+- Finish drafting DMS project proposal
+- Prepare blog post for compass 
+- Look over Zoey's document (see notes) and add comments/questions.
+- Check in with Nadia
+- Check in with Ryan's radiology work
+- Consider sync meetings as a possible way of communicating findings.
+- Look at indicator bank and do something I'm not sure.
+- Look at training on compass
+Accomplished
+- Created organized graphic to update ortho people
+- Worked on DMS Project Proposal for Ortho Review
+- Added Thyroid discussion to end of orthopedic presentation.
+To Complete Next Work Day
+
+
+

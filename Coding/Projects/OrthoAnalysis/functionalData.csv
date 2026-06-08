@@ -1,0 +1,41 @@
+﻿PatientID,LastName,FirstName,Goal 1,Goal 2,Goal 3,Goal 4,1,2,3,4,AVERAGE.Preop,1,2,3,4,AVERAGE.Discharge,1,2,3,4,AVERAGE.Preop
+SLG08058,TURAY,Abdul Rahman,Carrying heavy weight,Running,Walking up hills,,4,6,2,,4,10,10,10,,10,8,8,10,,8.666666667
+SLG08060,JALLOH,Rugiatu,Playing stone ball,running,carrying heavy weight,,4,6,4,,4.666666667,NA,NA,NA,,,8,6,8,,7.333333333
+SLG08095,KOROMA,Sunkarie,Fatch water,Walking long distance,Play stone ball,,2,4,0,,2,10,6,10,,8.666666667,8,8,10,,8.666666667
+SLG08169,KORSU,Esther,Walking long distance and faster,Running ,Carrying things on the head,,2,0,2,,1.333333333,8,NA,10,,9,10,10,10,,10
+SLG08186,BAH,Amadu J,Running ,Full sqating,carrying heavy object,,0,4,0,,1.333333333,NA,NA,NA,,,8,10,10,,9.333333333
+SLG08222,KAMARA,Mather,Walking long distance,Running ,Walking up stairs,,4,4,4,,4,8,NA,8,,8,6,6,6,,6
+SLG08398,BARRIE,Alhaji,Walking long distance,Running,,,6,4,,,5,10,10,,,10,10,10,,,10
+SLG08399,JALLOH,Abubakar,walking long distance ,Running /jumping,Difficulty to squat to use the bathroom,,2,2,2,,2,10,8,8,,8.666666667,10,8,10,,9.333333333
+SLG08400,KAMARA,Fatima,Climbing hills,Running,walking long distance,,4,2,6,,4,6,NA,8,,7,10,10,10,,10
+SLG08424,KARGBO,John,Playing football ,Running,Carrying weight,,0,0,0,,0,8,10,6,,8,8,8,8,,8
+SLG08454,TANGABAY,Mariama,Walk to school,Running,Fatch water,,4,4,0,,2.666666667,10,NA,NA,,10,10,4,10,,8
+SLG08458,SESAY,Sento,,,,,,,,,,,,,,,,,,,
+SLG08568,JALLOH,Mohamed,Go to school without being teased,,,,6,,,,6,10,,,,10,10,,,,10
+SLG08583,JALLOH,Tigidankay,Carrying heavy weitght,Walking long distance,Running,Jumping,4,6,6,4,5,NA,10,NA,NA,10,10,10,10,,10
+SLG08586,KAMARA,Adams Santigie,Walking long distance,Running,climbing long stairs,,4,6,4,,4.666666667,10,NA,10,,10,8,NA,8,,8
+SLG08625,TAILU,Abubakar,Walk for distance,Running,Going to school,Playing football,8,2,-,-,5,4,-,4,-,4,4,4,10,,6
+SLG08628,SESAY,Mariama,Lift heavy object,Walking long distance,stand on one legs,Running,0,2,2,0,1,6,8,10,NA,8,6,8,6,,
+SLG08629,KANU,Julius,Run fast,play ball well,,,4,6,,,5,NA,0,,,0,10,10,,,10
+SLG09028,ALPHA,Watta,Carry load on the head,Can't run,Can't play with other kids.,,2,0,2,,1.333333333,NA,NA,10,,10,MISSING,MISSING,MISSING,,
+SLG09087,AUGUSTINE,Sata,Running long distance,chores (carrying heavy objects),,,4,6,,,5,10,10,,,10,MISSING,MISSING,,,
+SLG09118,GBOIMA,Samuel Moses,Running ,Walking long distance,,,6,6,,,6,NA,4,,,4,10,10,,,10
+SLG09202,SHERRIF,Amara,,,,,,,,,,,,,,,,,,,
+SLG09203,KAMARA,Ibrahim,Climbing hills,Going to the bathroom by himself,Running,,4,0,4,,2.666666667,10,10,8,,9.333333333,10,10,10,,10
+SLG09204,KEMOKAI,Musu,Running ,Walking long distance,,,4,6,,,5,10,10,,,10,10,10,,,10
+SLG09239,CONTEH,Deborah,Climbing hills,Walking long distances,Playing with friends,,6,8,6,,,10,10,10,,,10,10,10,,
+SLG09240,FOFANAH,Jinnah,Running ,CARrying objects on the head,,,4,6,,,5,NA,NA,,,,10,10,,,10
+SLG09260,MASSAQUOI,Aminata,,,,,,,,,,,,,,,,,,,
+SLG09328,JOHNNY MOORE,Elisabeth,Running ,Walking long distance,carrying heavy object,,4,6,4,,4.666666667,NA,8,NA,,8,6,8,6,,6.666666667
+SLG09364,ARUNA,Morie K,Go to school,Running ,walking long distance,,0,2,4,,2,10,NA,NA,,10,NA,10,10,,10
+SLG09564,KOROMA,Ibrahim,Running ,Jumping /hopping,Playing Football,,0,2,0,,0.666666667,6,8,8,,7.333333333,8,10,8,,8.666666667
+SLG09786,MARRAH,Ferenken B.,Running ,Play football,Bicycle,Walk far,6,6,6,4,5.5,10,10,10,10,10,10,10,10,,10
+SLG09788,MANSARAY,Adama,Walking long distance,Running,climbing hills,,4,2,2,,2.666666667,5,NA,NA,,5,10,10,10,,10
+SLG09820,MANSARAY,Mohamed,Walking long distance,Running,Playing Football,,2,0,2,,1.333333333,10,NA,NA,,10,10,10,10,,10
+SLG09821,SHAW,Osman,Can`t play fooeball,Running,Climbing,,2,2,0,,1.333333333,10,10,10,,10,10,10,10,,10
+SLG09833,KOROMA,Mariama,Carry heavy objects,Walking long distance,,,6,4,,,5,NA,8,,,8,10,10,,,10
+SLG09897,VANDY,Kadiatu,Walking long distance,Running long distance,stairs,,8,6,6,,6.666666667,6,NA,NA,,6,10,10,10,,10
+SLG09899,SOWA,Doris,Getting water from the well,Carrying objects on the head,Laundry,,2,4,6,,4,10,8,10,,9.333333333,10,8,6,,8
+SLG09902,KANU,Ischaka,Running ,Walking up hills,,,0,6,,,3,0,8,,,4,10,10,,,10
+SLG09925,TARAWALLY,Baindu,Go to school,Running long distance,carrying heavy object,,0,0,0,,0,10,NA,NA,,10,10,8,8,,8.666666667
+SLG09936,KAINDANEH,Margret,Running ,Walking long distance,carrying heavy object,,2,2,6,,3.333333333,-,-,,,,6,6,10,,7.333333333

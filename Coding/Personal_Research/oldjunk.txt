@@ -1,0 +1,137 @@
+def gmail_send_message_with_attachments(to_gmails, from_gmail, subject, message_content, attachments, creds):
+
+
+  try:
+    # create gmail api client
+    service = build("gmail", "v1", credentials=creds)
+    mime_message = EmailMessage()
+
+    # headers
+    mime_message["To"] = to_gmails
+    mime_message["From"] = from_gmail
+    mime_message["Subject"] = subject
+
+    # text
+    mime_message.set_content(message_content
+    )
+
+    # attachment
+    attachment_filename = "large.jpg"
+    # guessing the MIME type
+    type_subtype, _ = mimetypes.guess_type(attachment_filename)
+    maintype, subtype = type_subtype.split("/")
+
+    with open(attachment_filename, "rb") as fp:
+      attachment_data = fp.read()
+    mime_message.add_attachment(attachment_data, maintype, subtype)
+
+    encoded_message = base64.urlsafe_b64encode(mime_message.as_bytes()).decode()
+
+    create_message  = {"raw": encoded_message}
+    # pylint: disable=E1101
+    send_message  = (
+        service.users()
+        .messages()
+        .send(userId="me", body=create_message)
+        .execute()
+    )
+    print(f'Message Id: {send_message["id"]}')
+
+
+  except HttpError as error:
+    print(f"An error occurred: {error}")
+    draft = None
+  return draft
+
+
+def download_file(real_file_id, creds):
+
+
+  try:
+    # create drive api client
+    service = build("drive", "v3", credentials=creds)
+
+    file_id = real_file_id
+
+    # pylint: disable=maybe-no-member
+    request = service.files().get_media(fileId=file_id)
+    file = io.BytesIO()
+    downloader = MediaIoBaseDownload(file, request)
+    done = False
+    while done is False:
+      status, done = downloader.next_chunk()
+      print(f"Download {int(status.progress() * 100)}.")
+
+  except HttpError as error:
+    print(f"An error occurred: {error}")
+    file = None
+
+  return file.getvalue()
+
+
+        
+def search_file(creds):
+
+  try:
+    # create drive api client
+    service = build("drive", "v3", credentials=creds)
+    files = []
+    page_token = None
+    while True:
+      # pylint: disable=maybe-no-member
+      response = (
+          service.files()
+          .list(
+              q="'10-KojpNk7AvEz3Hb6IW-HzIiP76aOdMk' in parents",
+              spaces="drive",
+              fields="nextPageToken, files(id, name)",
+              pageToken=page_token,
+          )
+          .execute()
+      )
+     
+      files.extend(response.get("files", []))
+      page_token = response.get("nextPageToken", None)
+      if page_token is None:
+        break
+
+  except HttpError as error:
+    print(f"An error occurred: {error}")
+    files = None
+
+  return files
+
+
+
+#print(name_list)
+#print("\n\n")
+#print(email_list)
+
+
+#scene_files = search_file(creds)
+
+
+#df = pd.DataFrame(scene_files)
+
+#scene_names = df.loc[:, 'name']
+
+#print(scene_names)
+
+#file_downloaded = []
+
+###for string in df.loc[:, "id"]:
+#    file_downloaded.append(download_file(real_file_id = string, creds = creds))
+
+
+
+    for student in selected_students_df["Name"]:
+        name_label = Label(root_assignments, text = student).grid(row = i, column = 0)
+        partner = StringVar()
+        partner.set("Select Partner")
+        
+        select_partner = OptionMenu(root_assignments, partner, *selected_students_df["Name"]).grid(row = i, column = 1)
+        scene_label = StringVar()
+        scene_label.set("Select Scene")
+        select_scene = OptionMenu(root_assignments, scene_label, *scene_list).grid(row = i, column = 2)
+        btn = Button(root_assignments, text = "submit", command = lambda x=student: save_data(x)).grid(row = i, column = 3)
+        i = i + 1

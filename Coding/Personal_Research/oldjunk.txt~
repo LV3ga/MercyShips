@@ -1,0 +1,102 @@
+def gmail_send_message_with_attachments(to_gmails, from_gmail, subject, message_content, attachments, creds):
+
+
+  try:
+    # create gmail api client
+    service = build("gmail", "v1", credentials=creds)
+    mime_message = EmailMessage()
+
+    # headers
+    mime_message["To"] = to_gmails
+    mime_message["From"] = from_gmail
+    mime_message["Subject"] = subject
+
+    # text
+    mime_message.set_content(message_content
+    )
+
+    # attachment
+    attachment_filename = "large.jpg"
+    # guessing the MIME type
+    type_subtype, _ = mimetypes.guess_type(attachment_filename)
+    maintype, subtype = type_subtype.split("/")
+
+    with open(attachment_filename, "rb") as fp:
+      attachment_data = fp.read()
+    mime_message.add_attachment(attachment_data, maintype, subtype)
+
+    encoded_message = base64.urlsafe_b64encode(mime_message.as_bytes()).decode()
+
+    create_message  = {"raw": encoded_message}
+    # pylint: disable=E1101
+    send_message  = (
+        service.users()
+        .messages()
+        .send(userId="me", body=create_message)
+        .execute()
+    )
+    print(f'Message Id: {send_message["id"]}')
+
+
+  except HttpError as error:
+    print(f"An error occurred: {error}")
+    draft = None
+  return draft
+
+
+def download_file(real_file_id, creds):
+
+
+  try:
+    # create drive api client
+    service = build("drive", "v3", credentials=creds)
+
+    file_id = real_file_id
+
+    # pylint: disable=maybe-no-member
+    request = service.files().get_media(fileId=file_id)
+    file = io.BytesIO()
+    downloader = MediaIoBaseDownload(file, request)
+    done = False
+    while done is False:
+      status, done = downloader.next_chunk()
+      print(f"Download {int(status.progress() * 100)}.")
+
+  except HttpError as error:
+    print(f"An error occurred: {error}")
+    file = None
+
+  return file.getvalue()
+
+
+        
+def search_file(creds):
+
+  try:
+    # create drive api client
+    service = build("drive", "v3", credentials=creds)
+    files = []
+    page_token = None
+    while True:
+      # pylint: disable=maybe-no-member
+      response = (
+          service.files()
+          .list(
+              q="'10-KojpNk7AvEz3Hb6IW-HzIiP76aOdMk' in parents",
+              spaces="drive",
+              fields="nextPageToken, files(id, name)",
+              pageToken=page_token,
+          )
+          .execute()
+      )
+     
+      files.extend(response.get("files", []))
+      page_token = response.get("nextPageToken", None)
+      if page_token is None:
+        break
+
+  except HttpError as error:
+    print(f"An error occurred: {error}")
+    files = None
+
+  return files
