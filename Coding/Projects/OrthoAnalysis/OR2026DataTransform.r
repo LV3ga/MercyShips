@@ -16,11 +16,22 @@ setwd("c://MercyShips//Coding//Projects//OrthoAnalysis")
 
                                         # getting original data and storing it in two variables
 
-data <- read.csv("test.csv")
-data_switch <- data
-
+data <- read.csv("Lucas_Transformed_June_2026.csv")
 colnames(data)
 
+
+                                        # This is a little awkward to do here, but I can't think of a better time
+                                        # I am filling out the "cleaned mech axis" and "mech axis type" column
+                                        # I extract the numbers from mech axis column. Then add NA into rows where
+                                        # there are no numbers.
+MA <- data$Mech.Axis
+MA_just_numbers <- regmatches(MA, gregexpr("[-]{0,1}[[:digit:]]+\\.{0,1}[[:digit:]]*",MA))
+data$cleaned_mech_axis_degrees <- as.numeric(unlist(lapply(MA_just_numbers,function(x) if(identical(x,character(0))) NA  else x)))
+data$cleaned_mech_axis_varus_valgus <- ifelse(grepl("varus", MA), "varus", ifelse(grepl("valgus", MA), "valgus", NA))
+
+
+
+data_switch <- data
 
                                         # Creating new columns for each stage of care
                                         # We start at 25, since columns 1-25 are data the doesn't change across
@@ -58,7 +69,7 @@ colnames(data_switch)
 data_switch <- data_switch[,c(c(1:25), c(219:ncol(data_switch)))]
 colnames(data_switch)
 
-
+   
                                         # Ensure stage of care between columns and rows matches
 preop_data  <- data_switch[data_switch$Stage.of.Care == "Assess_Preop", ]
 preop_data  <-  preop_data[, grepl("Preop", colnames(data_switch))]
@@ -80,13 +91,6 @@ twoyear_data  <- twoyear_data[, grepl("Twoyear", colnames(data_switch))]
 
 
 
-
-                                        # SLG has not had their two year appointments (as of 2026)
-                                        # Thus, twoyear_data will have less rows than the other data
-                                        # To make sure we have a full dataframe, we will add empty rows
-                                        # to twoyear data that correspond to SLG patients
-twoyear_data[nrow(twoyear_data) + nrow(general_data[grepl("SLG", general_data$PatientID),]),] <-NA
-
                                         # Get data that is same for all stages of care
                                         # Also only selecting one stage of care to match row count of above data
                                         # Also removing Stage.of.Care column as it is now meaningless
@@ -94,6 +98,12 @@ general_data <- data_switch[,c(1:25)]
 general_data <- general_data[general_data$Stage.of.Care == "Assess_Preop",]
 general_data$Stage.of.Care <- NULL
 
+
+                                        # SLG has not had their two year appointments (as of 2026)
+                                        # Thus, twoyear_data will have less rows than the other data
+                                        # To make sure we have a full dataframe, we will add empty rows
+                                        # to twoyear data that correspond to SLG patients
+twoyear_data[nrow(twoyear_data) + nrow(general_data[grepl("SLG", general_data$PatientID),]),] <-NA
 
 
                                         # Recombining all data to make column oriented structure

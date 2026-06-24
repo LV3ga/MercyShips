@@ -9,6 +9,7 @@ setwd("c:/MercyShips/Coding/Projects/OrthoAnalysis")
                                         # Reading in data
 OR2026Data <- read.csv("OR2026DataTransformed.csv")
 
+
 # Demographics
 ID <- OR2026Data$PatientID
 firstName <- OR2026Data$First.name
@@ -24,8 +25,27 @@ surgeryName <- OR2026Data$Name.of.Surgery.Done
 preopAlign <-as.numeric(OR2026Data$Preop.cleaned_Alignment..V2..in.cm)
 dischargeAlign <-as.numeric(OR2026Data$Discharge.cleaned_Alignment..V2..in.cm)
 oneyearAlign <-as.numeric(OR2026Data$Oneyear.cleaned_Alignment..V2..in.cm)
-changeAlign <- abs(oneyearAlign - dischargeAlign)
+twoyearAlign <-as.numeric(OR2026Data$Twoyear.cleaned_Alignment..V2..in.cm)
 
+
+# Radiological Data
+preopMechAxisRaw <- OR2026Data$Preop.Mech.Axis
+dischargeMechAxisRaw <-OR2026Data$Discharge.Mech.Axis
+oneyearMechAxisRaw <-OR2026Data$Oneyear.Mech.Axis
+twoyearMechAxisRaw <-OR2026Data$Twoyear.Mech.Axis
+preopMechAxisDegrees <- OR2026Data$Preop.cleaned_mech_axis_degrees
+dischargeMechAxisDegrees <-OR2026Data$Discharge.cleaned_mech_axis_degrees
+oneyearMechAxisDegrees <-OR2026Data$Oneyear.cleaned_mech_axis_degrees
+twoyearMechAxisDegrees <-OR2026Data$Twoyear.cleaned_mech_axis_degrees
+preopMechAxisMeasurement <- OR2026Data$Preop.cleaned_mech_axis_varus_valgus
+dischargeMechAxisMeasurement <-OR2026Data$Discharge.cleaned_mech_axis_varus_valgus
+oneyearMechAxisMeasurement <-OR2026Data$Oneyear.cleaned_mech_axis_varus_valgus
+twoyearMechAxisMeasurement <-OR2026Data$Twoyear.cleaned_mech_axis_varus_valgus
+preopMAD <- as.numeric(OR2026Data$Preop.Mech.Axis.Deviation..mm.)
+dischargeMAD <-as.numeric(OR2026Data$Discharge.Mech.Axis.Deviation..mm.)
+oneyearMAD <- as.numeric(OR2026Data$Oneyear.Mech.Axis.Deviation..mm.)
+twoyearMAD <-as.numeric(OR2026Data$Twoyear.Mech.Axis.Deviation..mm.)
+ 
 
 # QOL Data
 preopEQ.1 <- OR2026Data$Preop.EQ.1..Mobility..how.much.difficulty.do.you.have.walking.about.
@@ -76,7 +96,11 @@ oneyearWorstPain <- as.numeric(OR2026Data[ , which(colnames(OR2026Data) == "Oney
 
 
 OR2026DataAnalysis <- cbind(ID, firstName, lastName, age, preopBMI, sex, diagnosis, surgeryName,
-                            preopAlign, dischargeAlign, oneyearAlign, changeAlign,
+                            preopAlign, dischargeAlign, oneyearAlign, twoyearAlign,
+                            preopMechAxisRaw, dischargeMechAxisRaw, oneyearMechAxisRaw, twoyearMechAxisRaw,
+                            preopMechAxisDegrees, dischargeMechAxisDegrees, oneyearMechAxisDegrees, twoyearMechAxisDegrees,
+                            preopMechAxisMeasurement, dischargeMechAxisMeasurement, oneyearMechAxisMeasurement, twoyearMechAxisMeasurement,
+                            preopMAD, dischargeMAD, oneyearMAD, twoyearMAD,
                             preopEQ.1, preopEQ.2, preopEQ.3, preopEQ.4, preopEQ.5, preopEQ.final,
                             dischargeEQ.1, dischargeEQ.2, dischargeEQ.3, dischargeEQ.4, dischargeEQ.5,
                             dischargeEQ.final, oneyearEQ.1, oneyearEQ.2, oneyearEQ.3, oneyearEQ.4,
