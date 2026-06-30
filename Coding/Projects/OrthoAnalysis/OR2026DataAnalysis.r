@@ -71,21 +71,121 @@ SLG_patients <- data.frame(ID = d
                                         # Clinical Report Analysis - START
 ####################################################################################
 
-summary(data$preopAlign, na.rm=TRUE)
-summary(data$dischargeAlign, na.rm=TRUE)
-summary(data$oneyearAlign, na.rm=TRUE)
-summary(data$twoyearAlign, na.rm=TRUE)
 
-summary(data$preopMechAxisDegrees, na.rm=TRUE)
-summary(data$dischargeMechAxisDegrees, na.rm=TRUE)
-summary(data$oneyearMechAxisDegrees, na.rm=TRUE)
-summary(data$twoyearMechAxisDegrees, na.rm=TRUE)
 
-summary(data$preopMAD, na.rm=TRUE)
-summary(data$dischargeMAD, na.rm=TRUE)
-summary(data$oneyearMAD, na.rm=TRUE)
-summary(data$twoyearMAD, na.rm=TRUE)
+                                        # SLG vs SLF blounts w/ elevation
+                                        # 7 SLG
+                                        # 35 SLF
 
+data_blounts_elevation <- data[data$diagnosis == "blounts" & grepl("elevation", data$surgeryName),]
+
+data_blounts_elevation_SLG <- data_blounts_elevation[grepl("SLG", data_blounts_elevation$ID),]
+data_blounts_elevation_SLF <- data_blounts_elevation[grepl("SLF", data_blounts_elevation$ID),]
+
+summary(data_blounts_elevation_SLG$preopAlign)
+summary(data_blounts_elevation_SLG$dischargeAlign)
+summary(data_blounts_elevation_SLG$oneyearAlign)
+
+summary(data_blounts_elevation_SLF$preopAlign)
+summary(data_blounts_elevation_SLF$dischargeAlign)
+summary(data_blounts_elevation_SLF$oneyearAlign)
+summary(data_blounts_elevation_SLF$twoyearAlign)
+
+
+summary(data_blounts_elevation_SLG$preopMechAxisDegrees)
+summary(data_blounts_elevation_SLG$dischargeMechAxisDegrees)
+summary(data_blounts_elevation_SLG$oneyearMechAxisDegrees)
+
+summary(data_blounts_elevation_SLF$preopMechAxisDegrees)
+summary(data_blounts_elevation_SLF$dischargeMechAxisDegrees)
+summary(data_blounts_elevation_SLF$oneyearMechAxisDegrees)
+summary(data_blounts_elevation_SLF$twoyearMechAxisDegrees)
+
+
+summary(data_blounts_elevation_SLG$preopMAD)
+summary(data_blounts_elevation_SLG$dischargeMAD)
+summary(data_blounts_elevation_SLG$oneyearMAD)
+
+summary(data_blounts_elevation_SLF$preopMAD)
+summary(data_blounts_elevation_SLF$dischargeMAD)
+summary(data_blounts_elevation_SLF$oneyearMAD)
+summary(data_blounts_elevation_SLF$twoyearMAD)
+
+
+
+                                        # SLG vs SLF blounts w/o elevation
+                                        # 20 SLG
+                                        # 17 SLF
+
+data_blounts_no_elevation <- data[data$diagnosis == "blounts" & !grepl("elevation", data$surgeryName),]
+
+data_blounts_no_elevation_SLG <- data_blounts_no_elevation[grepl("SLG", data_blounts_no_elevation$ID),]
+data_blounts_no_elevation_SLF <- data_blounts_no_elevation[grepl("SLF", data_blounts_no_elevation$ID),]
+
+summary(data_blounts_no_elevation_SLG$preopAlign)
+summary(data_blounts_no_elevation_SLG$dischargeAlign)
+summary(data_blounts_no_elevation_SLG$oneyearAlign)
+
+summary(data_blounts_no_elevation_SLF$preopAlign)
+summary(data_blounts_no_elevation_SLF$dischargeAlign)
+summary(data_blounts_no_elevation_SLF$oneyearAlign)
+summary(data_blounts_no_elevation_SLF$twoyearAlign)
+
+summary(data_blounts_no_elevation_SLG$preopMechAxisDegrees)
+summary(data_blounts_no_elevation_SLG$dischargeMechAxisDegrees)
+summary(data_blounts_no_elevation_SLG$oneyearMechAxisDegrees)
+
+summary(data_blounts_no_elevation_SLF$preopMechAxisDegrees)
+summary(data_blounts_no_elevation_SLF$dischargeMechAxisDegrees)
+summary(data_blounts_no_elevation_SLF$oneyearMechAxisDegrees)
+summary(data_blounts_no_elevation_SLF$twoyearMechAxisDegrees)
+
+summary(data_blounts_no_elevation_SLG$preopMAD)
+summary(data_blounts_no_elevation_SLG$dischargeMAD)
+summary(data_blounts_no_elevation_SLG$oneyearMAD)
+
+summary(data_blounts_no_elevation_SLF$preopMAD)
+summary(data_blounts_no_elevation_SLF$dischargeMAD)
+summary(data_blounts_no_elevation_SLF$oneyearMAD)
+summary(data_blounts_no_elevation_SLF$twoyearMAD)
+
+
+
+                                        # SLG vs SLF rickets
+                                        # 13 SLG
+                                        # 24 SLF
+
+data_rickets <- data[data$diagnosis == "rickets",]
+
+data_rickets_SLG <- data_rickets[grepl("SLG", data_rickets$ID),]
+data_rickets_SLF <- data_rickets[grepl("SLF", data_rickets$ID),]
+
+summary(data_rickets_SLG$preopAlign)
+summary(data_rickets_SLG$dischargeAlign)
+summary(data_rickets_SLG$oneyearAlign)
+
+summary(data_rickets_SLF$preopAlign)
+summary(data_rickets_SLF$dischargeAlign)
+summary(data_rickets_SLF$oneyearAlign)
+summary(data_rickets_SLF$twoyearAlign)
+
+summary(data_rickets_SLG$preopMechAxisDegrees)
+summary(data_rickets_SLG$dischargeMechAxisDegrees)
+summary(data_rickets_SLG$oneyearMechAxisDegrees)
+
+summary(data_rickets_SLF$preopMechAxisDegrees)
+summary(data_rickets_SLF$dischargeMechAxisDegrees)
+summary(data_rickets_SLF$oneyearMechAxisDegrees)
+summary(data_rickets_SLF$twoyearMechAxisDegrees)
+
+summary(data_rickets_SLG$preopMAD)
+summary(data_rickets_SLG$dischargeMAD)
+summary(data_rickets_SLG$oneyearMAD)
+
+summary(data_rickets_SLF$preopMAD)
+summary(data_rickets_SLF$dischargeMAD)
+summary(data_rickets_SLF$oneyearMAD)
+summary(data_rickets_SLF$twoyearMAD)
 
 
                                         # Clinical Report Analysis - END

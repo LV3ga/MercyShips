@@ -604,3 +604,24 @@ Notes
 -
 To Complete Next Work Day
 -
+
+
+Jun 24 2026
+To do
+- UPDATE ORTHO GROUP CHAT ONCE A WEEK
+- Work on research data analysis
+- Finish drafting DMS project proposal
+- Prepare blog post for compass 
+- Look over Zoey's document (see notes) and add comments/questions.
+- Check in with Nadia
+- Check in with Ryan's radiology work
+- Consider sync meetings as a possible way of communicating findings.
+- Look at indicator bank and do something I'm not sure.
+- Look at training on compass
+Accomplished
+- In 2026ORDataAnalysis.r, organized alignment, mech axis, MAD data by blounts w/ elevation, blounts w/o elevation and rickets.
+- Made graphs for data for blounts w/ elevation
+Notes
+-
+To Complete Next Work Day
+-
