@@ -31,25 +31,23 @@ from oauth2client.service_account import ServiceAccountCredentials
 # Connecting to Google Sheets and getting tables
 scope = ['https://www.googleapis.com/auth/drive']
 creds = ServiceAccountCredentials.from_json_keyfile_name('aas_client_secret.json', scope)
-client = gspread.authorize(creds)
+   client = gspread.authorize(creds)
 sheet_id = "1EH9LXXC60qgib1c2hlIrOu7KW7DojhwL1Vi2eNjEabQ"
-
 workbook  = client.open_by_key(sheet_id)
 sheet_students = workbook.worksheet("Students")
 sheet_classes = workbook.worksheet("Classes")
-sheet_payment = workbook.worksheet("Payment History 2026")
+sheet_payment = workbook.worksheet("Payment History")
 students_row_list = sheet_students.get_all_values()
 classes_row_list = sheet_classes.get_all_values()
 payment_row_list = sheet_payment.get_all_values()
 class_selected = "Wednesday Night" 
+
 
 # Dataframes for classes and students
 classes_df = pd.DataFrame(classes_row_list[1:], columns = classes_row_list[0])
 students_df = pd.DataFrame(students_row_list[1:], columns = students_row_list[0])
 students_email = students_df['Email']
 students_name = students_df['Name']
-
-
 
 
 
@@ -62,12 +60,10 @@ def get_wix_payments(students_email):
     previous_month_num = (current_month_num - 2) % 12 + 1
     current_month = get_month_string(current_month_num)
     previous_month = get_month_string(previous_month_num)
-             
+
+
     # Data frame for wix website
     wix_data = pd.read_csv("Orders.csv")
-    print(wix_data['Contact email'])
-    print(wix_data['Date created'])
-    print(wix_data['Price'])
     
 
     # Getting rows with emails from craigs class, from the current year
@@ -75,16 +71,12 @@ def get_wix_payments(students_email):
     wix_data_AAS = wix_data[['Date created', 'Contact email', 'Price']]
     wix_data_AAS = wix_data_AAS[wix_data_AAS['Contact email'].isin(students_email)]
     wix_data_AAS = wix_data_AAS[wix_data_AAS['Date created'].str.contains(current_year)]
-   # wix_data_AAS = wix_data_AAS[wix_data_AAS['Date created'].str.contains('|'.join([current_month, previous_month]))]
 
 
-    print(wix_data_AAS.columns.get_loc('Date created'))
-    
     # Getting data ready for spreadsheet
     wix_data_AAS['Name'] = wix_data_AAS['Contact email'].map(get_name_from_email)
     wix_data_AAS['Method'] = "Wix"
     wix_data_AAS['Month'] = "Jun"
-
     for i in range(len(wix_data_AAS)):
         wix_data_AAS.iloc[i, wix_data_AAS.columns.get_loc('Month')] = wix_data_AAS.iloc[i, wix_data_AAS.columns.get_loc('Date created')][:3]
 
@@ -101,43 +93,64 @@ def get_wix_payments(students_email):
     wix_data_AAS = wix_data_AAS[['Name', 'Email', 'Month', 'Date', 'Amount', 'Method']]
 
     
+    # Getting payment history from google sheets
+    payment_history = get_spreadsheet_info("Payment History")
+    payment_history['Amount'] = payment_history['Amount'].astype(float)
+
+    
+    # Removing records that are already recorded in google sheets
+    merge = pd.merge(wix_data_AAS, payment_history, how = 'outer', indicator = True)
+    wix_data_AAS_export = merge[merge['_merge'] == 'left_only'].drop('_merge', axis = 1)
+
     
     # Turning output into list of lists for exporting to google sheets
-    wix_data_AAS_export = wix_data_AAS.to_numpy().tolist()
-
-    print(wix_data_AAS_export)
-
-    print(payment_row_list)
-
-    # Convert string payments to floats in payment_row_records
-    for record in payment_row_list:
-        try:
-            record[4] = float(record[4])
-        except:
-            None
-
-    # See if wix_data_AAS_export contains records that are already in the Google Sheets
-    wix_data_AAS_export_final = []
-    for record in wix_data_AAS_export:
-        if record not in payment_row_list:
-            wix_data_AAS_export_final.append(record)
-
+    wix_data_AAS_export = wix_data_AAS_export.to_numpy().tolist()
 
 
     # Exporting to google sheets
-    sheet_payment.append_rows(wix_data_AAS_export_final, value_input_option = "USER_ENTERED")
+    if wix_data_AAS_export:
+        sheet_payment.append_rows(wix_data_AAS_export, value_input_option = "USER_ENTERED")
+        print("Data Exported")
+    else:
+        print("No Data to Export")
 
+def identify_missing_payments(month):
 
-#def get_venmo_payments()
+    payment_history = get_spreadsheet_info("Payment History")
+    
+    
 
+def get_spreadsheet_info(req):
+    workbook  = client.open_by_key(sheet_id)
 
-#def get_zelle_payments()
+    match req:
+        case "Students":
+            sheet = workbook.worksheet("Students")
+            row_list = sheet.get_all_values()
+            df = pd.DataFrame(row_list[1:], columns = row_list[0])
 
+        case "Classes":
+            sheet = workbook.worksheet("Classes")
+            row_list = sheet.get_all_values()
+            df = pd.DataFrame(row_list[1:], columns = row_list[0])
 
-#def organize_all_payments()
+        case "Payment History":
+            sheet = workbook.worksheet("Payment History")
+            row_list = sheet.get_all_values()
+            df = pd.DataFrame(row_list[1:], columns = row_list[0])
 
+        case "Payment Plans":
+            sheet = workbook.worksheet("Payment Plans")
+            row_list = sheet.get_all_values()
+            df = pd.DataFrame(row_list[1:], columns = row_list[0])
+            
+        case "Payment Issues":
+            sheet = workbook.worksheet("Payment Issues")
+            row_list = sheet.get_all_values()
+            df = pd.DataFrame(row_list[1:], columns = row_list[0])
 
-#def update_spreadsheet():
+    return df
+
 
 
 #def identify_missed_payments()
